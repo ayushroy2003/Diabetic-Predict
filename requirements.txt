@@ -1,5 +1,7 @@
 pandas
 numpy
+gunicorn
+uvicorn
 scikit-learn
 seaborn
 Flask
