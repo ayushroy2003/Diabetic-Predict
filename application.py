@@ -10,12 +10,10 @@ app=application
 scaler = pickle.load(open("D:\data science projects\logistic regresion projects\diabetes prediction\Model\standardScaler.pkl", 'rb'))
 model = pickle.load(open("D:\data science projects\logistic regresion projects\diabetes prediction\Model\modelForPrediction.pkl",'rb'))
 
-## routing to homepage
-
+## routing to homepage(optional)
 @app.route('/')
 def index():
-    return render_template('index.html')
-
+    return redirect(url_for('predict_datapoint'))
 
 #Routing for single data prediction
 @app.route('/predictdata', methods = ['GET','POST'])
@@ -44,10 +42,6 @@ def predict_datapoint():
     
     else :
         return render_template('home.html')
-
-
-
-
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1")
