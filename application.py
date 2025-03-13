@@ -7,8 +7,8 @@ import numpy as np
 application = Flask(__name__)
 app=application
 
-scaler = pickle.load(open("Model\standardScaler.pkl", 'rb'))
-model = pickle.load(open("Model\modelForPrediction.pkl",'rb'))
+scaler = pickle.load(open("Model/standardScaler.pkl", 'rb'))
+model = pickle.load(open("Model/modelForPrediction.pkl", 'rb'))
 
 ## routing to homepage(optional)
 @app.route('/')
@@ -49,4 +49,5 @@ def predict_datapoint():
 
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1")
+    app.run(host="0.0.0.0", port=5000)
+
