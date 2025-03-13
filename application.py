@@ -1,4 +1,4 @@
-from flask import Flask,request , app,render_template
+from flask import Flask,request , app,render_template,redirect,url_for
 from flask import Response
 import pickle
 import pandas as pd
@@ -7,8 +7,8 @@ import numpy as np
 application = Flask(__name__)
 app=application
 
-scaler = pickle.load(open("D:\data science projects\logistic regresion projects\diabetes prediction\Model\standardScaler.pkl", 'rb'))
-model = pickle.load(open("D:\data science projects\logistic regresion projects\diabetes prediction\Model\modelForPrediction.pkl",'rb'))
+scaler = pickle.load(open("Model\standardScaler.pkl", 'rb'))
+model = pickle.load(open("Model\modelForPrediction.pkl",'rb'))
 
 ## routing to homepage(optional)
 @app.route('/')
