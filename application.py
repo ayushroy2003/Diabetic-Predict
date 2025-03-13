@@ -1,4 +1,4 @@
-from flask import Flask,request,render_template,redirect,url_for
+from flask import Flask,request , app,render_template,redirect, url_for
 from flask import Response
 import pickle
 import pandas as pd
@@ -14,6 +14,7 @@ model = pickle.load(open("Model\modelForPrediction.pkl",'rb'))
 @app.route('/')
 def index():
     return redirect(url_for('predict_datapoint'))
+
 
 #Routing for single data prediction
 @app.route('/predictdata', methods = ['GET','POST'])
@@ -42,6 +43,10 @@ def predict_datapoint():
     
     else :
         return render_template('home.html')
+
+
+
+
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1")
